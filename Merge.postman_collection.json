@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "ab579a16-cc89-4f90-bade-c2be59d6ea27",
+		"name": "Merge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11920012"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "create-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\":{\n        \"firstName\":\"kaushik\",\n        \"lastName\":\"naskar\",\n        \"username\":\"knaskar\",\n        \"password\":\"knaskar\"\n    }\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promote-user-to-admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrbmFza2FyIiwiZXhwIjoxNjkxMzI0OTg1LCJpYXQiOjE2OTEzMDY5ODV9.oDJnLXPfplW7RuJLFJt86LcUmPgqgXiNTWluxRxIdabeHs9YjZsfWusU3bXjx0K_6AuoMrGR5uk1zE-iRA8cQQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/user/4/promotion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"user",
+								"4",
+								"promotion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin-suspends-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYWRtaW4iLCJleHAiOjE2OTEzMjY2NjQsImlhdCI6MTY5MTMwODY2NH0._I-rJl_TOBmvlk5-QnJ8aYj5bzRTUJPh_EM4n0es3hgI7J1XjgeggzRyJRAMcwopqtI0ANT0A0NtiOr1DWIxew",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/user/1/suspension",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"user",
+								"1",
+								"suspension"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "item",
+			"item": [
+				{
+					"name": "add-item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYWRtaW4iLCJleHAiOjE2OTEzMzgwOTcsImlhdCI6MTY5MTMyMDA5N30.Op9U-7RIDSvPLcYhAyCgWeweMVeiFCl4kmINfAqSOQEPrfec_gQVZarFJrX5EZkqkTjgvlwwGS0zELvBcGanpA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"name\": \"Good-Day\",\n        \"brand\": \"Britania\",\n        \"skuId\":\"876457\",\n        \"category\": \"Biscuit\",\n        \"price\": \"10\",\n        \"quantity\": 10\n    }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-items",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYWRtaW4iLCJleHAiOjE2OTEzMjY2NjQsImlhdCI6MTY5MTMwODY2NH0._I-rJl_TOBmvlk5-QnJ8aYj5bzRTUJPh_EM4n0es3hgI7J1XjgeggzRyJRAMcwopqtI0ANT0A0NtiOr1DWIxew",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\":{\n        \"name\":{{$randomProductName}},\n        \"skuId\":{{$randomAlphaNumeric}},\n        \"category\":{{$randomDepartment}},\n        \"brand\":{{$randomCompanyName}},\n        \"price\":{{$randomPrice}},\n        \"quantity\":10\n    }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"sadmin\",\n    \"password\": \"sadmin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
